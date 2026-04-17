@@ -17,7 +17,7 @@ export default function Nav() {
   const [open, setOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-50 bg-white/95 backdrop-blur border-b border-gray-100 shadow-sm">
+    <header className="sticky top-0 z-50 bg-black border-b border-white/10 shadow-sm">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 flex h-16 items-center justify-between">
         <Link href="/" className="flex items-center">
           {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -29,7 +29,7 @@ export default function Nav() {
             <Link
               key={l.href}
               href={l.href}
-              className="text-sm font-semibold tracking-wide text-gray-600 hover:text-blue-700 transition-colors uppercase"
+              className="text-sm font-semibold tracking-wide text-gray-300 hover:text-white transition-colors uppercase"
             >
               {l.label}
             </Link>
@@ -45,24 +45,24 @@ export default function Nav() {
         </nav>
 
         <button
-          className="md:hidden p-2 rounded-lg hover:bg-gray-100"
+          className="md:hidden p-2 rounded-lg hover:bg-white/10"
           onClick={() => setOpen(!open)}
           aria-label="Toggle menu"
         >
-          <div className="w-5 h-0.5 bg-gray-800 mb-1" />
-          <div className="w-5 h-0.5 bg-gray-800 mb-1" />
-          <div className="w-5 h-0.5 bg-gray-800" />
+          <div className="w-5 h-0.5 bg-white mb-1" />
+          <div className="w-5 h-0.5 bg-white mb-1" />
+          <div className="w-5 h-0.5 bg-white" />
         </button>
       </div>
 
       {open && (
-        <div className="md:hidden border-t border-gray-100 bg-white px-4 py-4 flex flex-col gap-4">
+        <div className="md:hidden border-t border-white/10 bg-black px-4 py-4 flex flex-col gap-4">
           {links.map((l) => (
             <Link
               key={l.href}
               href={l.href}
               onClick={() => setOpen(false)}
-              className="text-sm font-semibold uppercase text-gray-700 hover:text-blue-700"
+              className="text-sm font-semibold uppercase text-gray-300 hover:text-white"
             >
               {l.label}
             </Link>
