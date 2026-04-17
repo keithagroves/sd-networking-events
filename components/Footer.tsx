@@ -14,7 +14,7 @@ export default function Footer() {
       <div className="max-w-6xl mx-auto px-4 sm:px-6 py-12 flex flex-col md:flex-row items-center justify-between gap-6">
         <div>
           <div className="flex items-center gap-2 mb-2">
-            <span className="text-lg font-black text-blue-400">SD</span>
+            <span className="text-lg font-black text-brand-light">SD</span>
             <span className="text-lg font-black text-white">NETWORKING EVENTS</span>
           </div>
           <p className="text-sm">San Diego's premier professional networking organization.</p>

@@ -15,7 +15,7 @@ const events = [
     freq: "7 summits in 2026",
     desc: "Deep-dive themed summits covering Finance, Tech, Entrepreneurship, Marketing, Health & more. Half-day format with panels, workshops, and open networking.",
     bullets: ["Finance, Tech, Entrepreneur, Creator & more", "Every 3rd Thursday | 4–8 PM", "Expert panels + open networking"],
-    color: "from-indigo-600 to-indigo-800",
+    color: "from-brand to-brand-dark",
   },
   {
     title: "Business Showcases",
@@ -48,13 +48,13 @@ export default function HomePage() {
     <>
       {/* Hero */}
       <section className="relative bg-gradient-to-br from-gray-950 via-blue-950 to-gray-950 text-white overflow-hidden">
-        <div className="absolute inset-0 opacity-10 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-blue-400 via-transparent to-transparent" />
+        <div className="absolute inset-0 opacity-10 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-brand via-transparent to-transparent" />
         <div className="max-w-6xl mx-auto px-4 sm:px-6 py-24 md:py-36 relative">
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img src={`${basePath}/logo.png`} alt="SD Networking Events" className="mb-8 h-16 w-auto" />
           <h1 className="text-5xl md:text-7xl font-black leading-tight tracking-tight mb-6">
             Where San Diego<br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-400">
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand to-brand-light">
               Business Grows
             </span>
           </h1>
@@ -67,7 +67,7 @@ export default function HomePage() {
               href="https://www.eventbrite.com/o/sd-networking-events-jmh-marketing-group-2305019979"
               target="_blank"
               rel="noopener noreferrer"
-              className="px-6 py-3 bg-blue-600 hover:bg-blue-500 text-white font-bold rounded-xl transition-all hover:scale-105 shadow-lg shadow-blue-900/50"
+              className="px-6 py-3 bg-brand hover:bg-brand-dark text-white font-bold rounded-xl transition-all hover:scale-105 shadow-lg shadow-brand/30"
             >
               View Event Calendar →
             </Link>
@@ -85,7 +85,7 @@ export default function HomePage() {
           <div className="max-w-6xl mx-auto px-4 sm:px-6 py-6 grid grid-cols-3 gap-4 text-center">
             {[["24+", "Events Annually"], ["150K+", "Professional Network"], ["18+", "Years Experience"]].map(([val, label]) => (
               <div key={label}>
-                <div className="text-2xl md:text-3xl font-black text-blue-400">{val}</div>
+                <div className="text-2xl md:text-3xl font-black text-brand-light">{val}</div>
                 <div className="text-xs md:text-sm text-gray-400 font-medium">{label}</div>
               </div>
             ))}
@@ -131,7 +131,7 @@ export default function HomePage() {
               href="https://www.eventbrite.com/o/sd-networking-events-jmh-marketing-group-2305019979"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-6 py-3 bg-blue-700 text-white font-bold rounded-xl hover:bg-blue-800 transition-colors"
+              className="inline-flex items-center gap-2 px-6 py-3 bg-brand text-white font-bold rounded-xl hover:bg-brand-dark transition-colors"
             >
               Browse All Events on Eventbrite →
             </Link>
@@ -144,7 +144,7 @@ export default function HomePage() {
         <div className="max-w-6xl mx-auto px-4 sm:px-6">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div>
-              <div className="inline-block px-3 py-1 bg-indigo-100 text-indigo-700 text-xs font-bold uppercase tracking-wider rounded-full mb-4">
+              <div className="inline-block px-3 py-1 bg-brand/10 text-brand-dark text-xs font-bold uppercase tracking-wider rounded-full mb-4">
                 2026 Summit Series
               </div>
               <h2 className="text-3xl md:text-4xl font-black text-gray-900 mb-4">
@@ -158,7 +158,7 @@ export default function HomePage() {
                 href="https://www.eventbrite.com/o/sd-networking-events-jmh-marketing-group-2305019979"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-5 py-2.5 bg-indigo-700 text-white font-bold rounded-xl hover:bg-indigo-800 transition-colors text-sm"
+                className="inline-flex items-center gap-2 px-5 py-2.5 bg-brand text-white font-bold rounded-xl hover:bg-brand-dark transition-colors text-sm"
               >
                 Reserve Your Spot →
               </Link>
@@ -167,10 +167,10 @@ export default function HomePage() {
               {summits.map((s) => (
                 <div
                   key={s.name}
-                  className="flex items-center justify-between px-5 py-3.5 rounded-xl bg-gray-50 border border-gray-100 hover:border-indigo-200 hover:bg-indigo-50 transition-colors group"
+                  className="flex items-center justify-between px-5 py-3.5 rounded-xl bg-gray-50 border border-gray-100 hover:border-brand/30 hover:bg-brand/5 transition-colors group"
                 >
-                  <span className="font-semibold text-gray-800 text-sm group-hover:text-indigo-700">{s.name}</span>
-                  <span className="text-xs font-medium text-gray-500 group-hover:text-indigo-500">{s.date}</span>
+                  <span className="font-semibold text-gray-800 text-sm group-hover:text-brand-dark">{s.name}</span>
+                  <span className="text-xs font-medium text-gray-500 group-hover:text-brand">{s.date}</span>
                 </div>
               ))}
             </div>
@@ -190,7 +190,7 @@ export default function HomePage() {
             </p>
             <Link
               href="/join"
-              className="inline-flex items-center gap-2 px-5 py-2.5 bg-blue-600 hover:bg-blue-500 text-white font-bold rounded-xl transition-all hover:scale-105 text-sm"
+              className="inline-flex items-center gap-2 px-5 py-2.5 bg-brand hover:bg-brand-dark text-white font-bold rounded-xl transition-all hover:scale-105 text-sm"
             >
               Join Today →
             </Link>
@@ -227,7 +227,7 @@ export default function HomePage() {
           <div className="flex flex-wrap justify-center gap-4">
             <Link
               href="/about"
-              className="px-5 py-2.5 border-2 border-gray-200 text-gray-700 font-bold rounded-xl hover:border-blue-600 hover:text-blue-700 transition-colors text-sm"
+              className="px-5 py-2.5 border-2 border-gray-200 text-gray-700 font-bold rounded-xl hover:border-brand hover:text-brand-dark transition-colors text-sm"
             >
               Our Story
             </Link>
@@ -235,7 +235,7 @@ export default function HomePage() {
               href="https://go.oncehub.com/JMHMarketingGroup"
               target="_blank"
               rel="noopener noreferrer"
-              className="px-5 py-2.5 bg-blue-700 text-white font-bold rounded-xl hover:bg-blue-800 transition-colors text-sm"
+              className="px-5 py-2.5 bg-brand text-white font-bold rounded-xl hover:bg-brand-dark transition-colors text-sm"
             >
               Book a Zoom with James →
             </Link>

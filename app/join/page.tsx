@@ -9,7 +9,7 @@ export default function JoinPage() {
   return (
     <section className="py-24 bg-gray-50 min-h-screen">
       <div className="max-w-3xl mx-auto px-4 sm:px-6 text-center">
-        <div className="inline-block px-3 py-1 bg-blue-100 text-blue-700 text-xs font-bold uppercase tracking-wider rounded-full mb-6">
+        <div className="inline-block px-3 py-1 bg-brand/10 text-brand-dark text-xs font-bold uppercase tracking-wider rounded-full mb-6">
           VIP Membership
         </div>
         <h1 className="text-4xl md:text-5xl font-black text-gray-900 mb-5">
@@ -23,7 +23,7 @@ export default function JoinPage() {
           href="https://sdnetworkingevents.com/join/"
           target="_blank"
           rel="noopener noreferrer"
-          className="inline-flex items-center gap-2 px-8 py-4 bg-blue-700 text-white font-bold text-lg rounded-xl hover:bg-blue-800 transition-colors"
+          className="inline-flex items-center gap-2 px-8 py-4 bg-brand text-white font-bold text-lg rounded-xl hover:bg-brand-dark transition-colors"
         >
           Become a VIP Member →
         </Link>

@@ -38,7 +38,7 @@ export default function Nav() {
             href="https://www.eventbrite.com/o/sd-networking-events-jmh-marketing-group-2305019979"
             target="_blank"
             rel="noopener noreferrer"
-            className="ml-2 px-4 py-2 bg-blue-700 text-white text-sm font-bold rounded-lg hover:bg-blue-800 transition-colors"
+            className="ml-2 px-4 py-2 bg-brand text-white text-sm font-bold rounded-lg hover:bg-brand-dark transition-colors"
           >
             Events →
           </Link>

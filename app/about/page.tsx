@@ -39,7 +39,7 @@ export default function AboutPage() {
             href="https://go.oncehub.com/JMHMarketingGroup"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 px-6 py-3 bg-blue-700 text-white font-bold rounded-xl hover:bg-blue-800 transition-colors"
+            className="inline-flex items-center gap-2 px-6 py-3 bg-brand text-white font-bold rounded-xl hover:bg-brand-dark transition-colors"
           >
             Book a Zoom with James →
           </Link>
