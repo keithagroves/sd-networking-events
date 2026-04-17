@@ -1,5 +1,6 @@
 import Link from "next/link";
-import Image from "next/image";
+
+const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
 
 const events = [
   {
@@ -49,14 +50,8 @@ export default function HomePage() {
       <section className="relative bg-gradient-to-br from-gray-950 via-blue-950 to-gray-950 text-white overflow-hidden">
         <div className="absolute inset-0 opacity-10 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-blue-400 via-transparent to-transparent" />
         <div className="max-w-6xl mx-auto px-4 sm:px-6 py-24 md:py-36 relative">
-          <Image
-            src="/logo.png"
-            alt="SD Networking Events"
-            width={320}
-            height={82}
-            className="mb-8 h-16 w-auto"
-            priority
-          />
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img src={`${basePath}/logo.png`} alt="SD Networking Events" className="mb-8 h-16 w-auto" />
           <h1 className="text-5xl md:text-7xl font-black leading-tight tracking-tight mb-6">
             Where San Diego<br />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-400">

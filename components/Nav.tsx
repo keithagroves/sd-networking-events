@@ -1,8 +1,9 @@
 "use client";
 
 import Link from "next/link";
-import Image from "next/image";
 import { useState } from "react";
+
+const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
 
 const links = [
   { href: "/", label: "Home" },
@@ -19,14 +20,8 @@ export default function Nav() {
     <header className="sticky top-0 z-50 bg-white/95 backdrop-blur border-b border-gray-100 shadow-sm">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 flex h-16 items-center justify-between">
         <Link href="/" className="flex items-center">
-          <Image
-            src="/logo.png"
-            alt="SD Networking Events"
-            width={180}
-            height={46}
-            className="h-10 w-auto"
-            priority
-          />
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img src={`${basePath}/logo.png`} alt="SD Networking Events" className="h-10 w-auto" />
         </Link>
 
         <nav className="hidden md:flex items-center gap-8">
