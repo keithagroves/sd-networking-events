@@ -6,30 +6,30 @@ const events = [
   {
     title: "Business Mixers",
     freq: "12× per year",
+    img: `${basePath}/events/mixer.webp`,
     desc: "High-energy in-person mixers for business owners, entrepreneurs, and professionals. Build real relationships, find collaborators, and grow your network.",
     bullets: ["Meet decision-makers & industry leaders", "Guest speakers & live demos", "Premium drinks & vibrant atmosphere"],
-    color: "from-blue-600 to-blue-800",
   },
   {
     title: "Summit Events",
     freq: "7 summits in 2026",
+    img: `${basePath}/events/summit.jpg`,
     desc: "Deep-dive themed summits covering Finance, Tech, Entrepreneurship, Marketing, Health & more. Half-day format with panels, workshops, and open networking.",
     bullets: ["Finance, Tech, Entrepreneur, Creator & more", "Every 3rd Thursday | 4–8 PM", "Expert panels + open networking"],
-    color: "from-brand to-brand-dark",
   },
   {
     title: "Business Showcases",
     freq: "4× per year",
+    img: `${basePath}/events/showcase.webp`,
     desc: "Expo-style events where businesses display their products and services to a room full of engaged buyers, investors, and collaborators.",
     bullets: ["Table booths for direct exposure", "Generate leads & close deals", "San Diego's top entrepreneurs"],
-    color: "from-violet-600 to-violet-800",
   },
   {
     title: "Bay Cruise",
     freq: "Annual | Jun 25, 2026",
+    img: `${basePath}/events/cruise.webp`,
     desc: "Elite networking aboard the Bella Luna Yacht on San Diego Bay. Sunset views of the skyline, complimentary bites, drinks, and unforgettable connections.",
     bullets: ["Bella Luna Yacht, San Diego Bay", "Sunset views & skyline backdrop", "Limited tickets — sell out fast"],
-    color: "from-cyan-600 to-cyan-800",
   },
 ];
 
@@ -43,15 +43,35 @@ const summits = [
   { name: "Digital Marketing & AI Summit", date: "Nov 19, 2026" },
 ];
 
+const sponsors = [
+  { name: "PowerTeam", src: `${basePath}/sponsors/powerteam.jpg` },
+  { name: "SD Yachts", src: `${basePath}/sponsors/sd-yachts.png` },
+  { name: "Virtual Synergy", src: `${basePath}/sponsors/vsi.png` },
+  { name: "AList", src: `${basePath}/sponsors/alist.png` },
+  { name: "Music Box", src: `${basePath}/sponsors/musicbox.png` },
+  { name: "BIG", src: `${basePath}/sponsors/big.webp` },
+  { name: "Blowfish Tequila", src: `${basePath}/sponsors/blowfish.webp` },
+  { name: "Real Deal Wellness", src: `${basePath}/sponsors/rdw.webp` },
+];
+
 export default function HomePage() {
   return (
     <>
-      {/* Hero */}
-      <section className="relative bg-gradient-to-br from-gray-950 via-blue-950 to-gray-950 text-white overflow-hidden">
-        <div className="absolute inset-0 opacity-10 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-brand via-transparent to-transparent" />
+      {/* Hero with photo background */}
+      <section className="relative bg-gray-950 text-white overflow-hidden">
+        <div
+          className="absolute inset-0 bg-cover bg-center opacity-30"
+          style={{ backgroundImage: `url(${basePath}/events/hero.webp)` }}
+        />
+        <div className="absolute inset-0 bg-gradient-to-br from-gray-950/95 via-gray-950/85 to-black/90" />
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_theme(colors.brand)/15,_transparent_70%)]" />
+
         <div className="max-w-6xl mx-auto px-4 sm:px-6 py-24 md:py-36 relative">
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img src={`${basePath}/logo.png`} alt="SD Networking Events" className="mb-8 h-16 w-auto" />
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand/20 border border-brand/40 text-brand-light text-xs font-semibold tracking-wider uppercase mb-6">
+            San Diego&apos;s Premier Business Network
+          </div>
           <h1 className="text-5xl md:text-7xl font-black leading-tight tracking-tight mb-6">
             Where San Diego<br />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand to-brand-light">
@@ -81,7 +101,7 @@ export default function HomePage() {
         </div>
 
         {/* Stats strip */}
-        <div className="border-t border-white/10 bg-white/5">
+        <div className="border-t border-white/10 bg-black/40 backdrop-blur-sm relative">
           <div className="max-w-6xl mx-auto px-4 sm:px-6 py-6 grid grid-cols-3 gap-4 text-center">
             {[["24+", "Events Annually"], ["150K+", "Professional Network"], ["18+", "Years Experience"]].map(([val, label]) => (
               <div key={label}>
@@ -93,7 +113,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Events grid */}
+      {/* Events grid with photos */}
       <section className="py-20 bg-gray-50">
         <div className="max-w-6xl mx-auto px-4 sm:px-6">
           <div className="text-center mb-14">
@@ -106,18 +126,27 @@ export default function HomePage() {
             {events.map((e) => (
               <div
                 key={e.title}
-                className="group bg-white rounded-2xl overflow-hidden border border-gray-100 shadow-sm hover:shadow-xl transition-all hover:-translate-y-1"
+                className="group bg-white rounded-2xl overflow-hidden border border-gray-100 shadow-sm hover:shadow-2xl transition-all hover:-translate-y-1 flex flex-col"
               >
-                <div className={`bg-gradient-to-r ${e.color} px-6 py-5 text-white`}>
-                  <div className="text-xs font-bold uppercase tracking-widest opacity-80 mb-1">{e.freq}</div>
-                  <h3 className="text-xl font-black">{e.title}</h3>
+                <div className="relative h-48 overflow-hidden bg-gray-900">
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
+                    src={e.img}
+                    alt={e.title}
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
+                  <div className="absolute bottom-0 left-0 right-0 p-5 text-white">
+                    <div className="text-xs font-bold uppercase tracking-widest text-brand-light mb-1">{e.freq}</div>
+                    <h3 className="text-2xl font-black">{e.title}</h3>
+                  </div>
                 </div>
-                <div className="px-6 py-5">
+                <div className="px-6 py-5 flex-1">
                   <p className="text-gray-600 text-sm leading-relaxed mb-4">{e.desc}</p>
                   <ul className="space-y-1.5">
                     {e.bullets.map((b) => (
                       <li key={b} className="flex items-start gap-2 text-sm text-gray-700">
-                        <span className="text-green-500 font-bold mt-0.5">✓</span>
+                        <span className="text-brand font-bold mt-0.5">✓</span>
                         {b}
                       </li>
                     ))}
@@ -125,16 +154,6 @@ export default function HomePage() {
                 </div>
               </div>
             ))}
-          </div>
-          <div className="text-center mt-10">
-            <Link
-              href="https://www.eventbrite.com/o/sd-networking-events-jmh-marketing-group-2305019979"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-6 py-3 bg-brand text-white font-bold rounded-xl hover:bg-brand-dark transition-colors"
-            >
-              Browse All Events on Eventbrite →
-            </Link>
           </div>
         </div>
       </section>
@@ -179,10 +198,10 @@ export default function HomePage() {
       </section>
 
       {/* CTA Split */}
-      <section className="py-20 bg-gradient-to-br from-blue-950 to-gray-950 text-white">
+      <section className="py-20 bg-gradient-to-br from-gray-950 to-black text-white">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 grid md:grid-cols-2 gap-6">
-          <div className="bg-white/5 border border-white/10 rounded-2xl p-8 hover:bg-white/10 transition-colors">
-            <div className="text-4xl mb-4">🏆</div>
+          <div className="bg-white/5 border border-white/10 rounded-2xl p-8 hover:bg-white/10 hover:border-brand/30 transition-colors">
+            <div className="w-12 h-12 rounded-xl bg-brand/20 flex items-center justify-center text-2xl mb-4">🏆</div>
             <h3 className="text-2xl font-black mb-3">Become a VIP Member</h3>
             <p className="text-gray-300 text-sm leading-relaxed mb-6">
               Get access to every event, exclusive member perks, priority registration, and
@@ -195,8 +214,8 @@ export default function HomePage() {
               Join Today →
             </Link>
           </div>
-          <div className="bg-white/5 border border-white/10 rounded-2xl p-8 hover:bg-white/10 transition-colors">
-            <div className="text-4xl mb-4">🎤</div>
+          <div className="bg-white/5 border border-white/10 rounded-2xl p-8 hover:bg-white/10 hover:border-brand/30 transition-colors">
+            <div className="w-12 h-12 rounded-xl bg-brand/20 flex items-center justify-center text-2xl mb-4">🎤</div>
             <h3 className="text-2xl font-black mb-3">Sponsor or Speak</h3>
             <p className="text-gray-300 text-sm leading-relaxed mb-6">
               Get your brand in front of 150,000+ San Diego professionals. Sponsor an event,
@@ -204,7 +223,7 @@ export default function HomePage() {
             </p>
             <Link
               href="/sponsor"
-              className="inline-flex items-center gap-2 px-5 py-2.5 bg-violet-600 hover:bg-violet-500 text-white font-bold rounded-xl transition-all hover:scale-105 text-sm"
+              className="inline-flex items-center gap-2 px-5 py-2.5 bg-brand hover:bg-brand-dark text-white font-bold rounded-xl transition-all hover:scale-105 text-sm"
             >
               Learn More →
             </Link>
@@ -212,32 +231,81 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* About strip */}
+      {/* Founder section with photo */}
       <section className="py-20 bg-white">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 text-center">
-          <h2 className="text-3xl md:text-4xl font-black text-gray-900 mb-5">
-            Founded by James Hickey
-          </h2>
-          <p className="text-gray-500 leading-relaxed text-lg mb-6">
-            SD Networking Events was founded by James Hickey, a digital marketing strategist and
-            entrepreneur with 18+ years of experience. From humble monthly mixers to a full calendar
-            of 24 annual events, SD Networking has become the connective tissue of San Diego&apos;s
-            business community.
-          </p>
-          <div className="flex flex-wrap justify-center gap-4">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6">
+          <div className="grid md:grid-cols-[1fr_1.5fr] gap-10 items-center">
+            <div className="relative aspect-square rounded-2xl overflow-hidden bg-gray-900 shadow-xl">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src={`${basePath}/events/james.webp`}
+                alt="James Hickey, Founder"
+                className="w-full h-full object-cover"
+              />
+            </div>
+            <div>
+              <div className="inline-block px-3 py-1 bg-gray-100 text-gray-600 text-xs font-bold uppercase tracking-wider rounded-full mb-4">
+                About the Founder
+              </div>
+              <h2 className="text-3xl md:text-4xl font-black text-gray-900 mb-5">
+                Founded by James Hickey
+              </h2>
+              <p className="text-gray-600 leading-relaxed mb-6">
+                James Hickey is a digital marketing strategist and entrepreneur with 18+ years of
+                experience. From humble monthly mixers to a full calendar of 24 annual events,
+                SD Networking has become the connective tissue of San Diego&apos;s business
+                community.
+              </p>
+              <div className="flex flex-wrap gap-3">
+                <Link
+                  href="/about"
+                  className="px-5 py-2.5 border-2 border-gray-200 text-gray-700 font-bold rounded-xl hover:border-brand hover:text-brand-dark transition-colors text-sm"
+                >
+                  Our Story
+                </Link>
+                <Link
+                  href="https://go.oncehub.com/JMHMarketingGroup"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="px-5 py-2.5 bg-brand text-white font-bold rounded-xl hover:bg-brand-dark transition-colors text-sm"
+                >
+                  Book a Zoom with James →
+                </Link>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Sponsors */}
+      <section className="py-20 bg-gray-50 border-t border-gray-100">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6">
+          <div className="text-center mb-12">
+            <div className="inline-block px-3 py-1 bg-white border border-gray-200 text-gray-600 text-xs font-bold uppercase tracking-wider rounded-full mb-4">
+              Trusted By
+            </div>
+            <h2 className="text-3xl md:text-4xl font-black text-gray-900 mb-3">Our Sponsors & Partners</h2>
+            <p className="text-gray-500 max-w-xl mx-auto">
+              The brands and businesses that make SD Networking Events possible.
+            </p>
+          </div>
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
+            {sponsors.map((s) => (
+              <div
+                key={s.name}
+                className="aspect-[3/2] bg-white rounded-xl border border-gray-100 flex items-center justify-center p-6 hover:border-brand/30 hover:shadow-md transition-all grayscale hover:grayscale-0"
+              >
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img src={s.src} alt={s.name} className="max-w-full max-h-full object-contain" />
+              </div>
+            ))}
+          </div>
+          <div className="text-center mt-10">
             <Link
-              href="/about"
-              className="px-5 py-2.5 border-2 border-gray-200 text-gray-700 font-bold rounded-xl hover:border-brand hover:text-brand-dark transition-colors text-sm"
+              href="/sponsor"
+              className="inline-flex items-center gap-2 px-6 py-3 border-2 border-gray-200 text-gray-700 font-bold rounded-xl hover:border-brand hover:text-brand-dark transition-colors text-sm"
             >
-              Our Story
-            </Link>
-            <Link
-              href="https://go.oncehub.com/JMHMarketingGroup"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="px-5 py-2.5 bg-brand text-white font-bold rounded-xl hover:bg-brand-dark transition-colors text-sm"
-            >
-              Book a Zoom with James →
+              Become a Sponsor →
             </Link>
           </div>
         </div>
